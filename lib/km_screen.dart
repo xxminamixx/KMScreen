@@ -2,24 +2,24 @@ library km_screen;
 
 import 'package:flutter/material.dart';
 
-class Screen {
+class KMScreen {
 
   static Size size;
   static Orientation orientation;
   static Brightness brightness;
 
-  Screen({
+  KMScreen({
     @required BuildContext context,
   }) {
-    Screen.size = MediaQuery.of(context).size;
-    Screen.brightness = MediaQuery.of(context).platformBrightness;
-    Screen.orientation = MediaQuery.of(context).orientation;
+    KMScreen.size = MediaQuery.of(context).size;
+    KMScreen.brightness = MediaQuery.of(context).platformBrightness;
+    KMScreen.orientation = MediaQuery.of(context).orientation;
   }
 
   static setup({
     @required BuildContext context,
   }) {
-    Screen(context: context);
+    KMScreen(context: context);
   }
 
 }
