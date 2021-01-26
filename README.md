@@ -1,14 +1,41 @@
 # km_screen
 
-A package for device screens
+This package is a wrap of Media Query
 
-## Getting Started
+## Usage
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+1. KMScreen is set up by MaterialApp or WdigetApp in ancestor Context.
+2. Refer to various properties at any place.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'My App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: BottomNavigationWidget(),
+    );
+  }
+}
+
+class BottomNavigationWidget extends StatelessWidget {
+  final List<Widget> _tabItem = [
+    HomeWidget(),
+    SettingWidget(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    // KMScreen setup
+    KMScreen.setup(context: context);
+    print("width: ${KMScreen.size.width}, height: ${KMScreen.size.height}");
+
+    return _mainWidget();
+  }
+}
+```
